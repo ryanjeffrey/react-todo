@@ -1,12 +1,27 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { NavLink, Redirect, useParams } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
+import { authUser } from '../../services/auth';
 
 import './Auth.css';
 
 export default function Auth() {
+  const { type } = useParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const { user, setUser } = useContext(UserContext);
+
+  const submitAuth = async () => {
+    const userResponse = await authUser(email, password, type);
+    setUser(userResponse);
+    setEmail('');
+    setPassword('');
+  };
+
+  if (user) {
+    return <Redirect to="/items" />;
+  }
   return (
     <div className="auth-wrapper">
       <div className="auth-toggle">
@@ -21,7 +36,7 @@ export default function Auth() {
         <label>Password:</label>
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
-      <button>Submit</button>
+      <button onClick={submitAuth}>Submit</button>
     </div>
   );
 }
