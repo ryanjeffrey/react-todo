@@ -1,0 +1,11 @@
+.todo-wrapper {
+    margin: 40px;
+}
+
+.todo-wrapper div {
+    margin: 20px;
+}
+
+.todo-wrapper button {
+    margin-left: 10px;
+}

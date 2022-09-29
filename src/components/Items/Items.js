@@ -4,6 +4,8 @@ import { UserContext } from '../../context/UserContext';
 import { useItems } from '../../hooks/useItems';
 import { createListItem, toggleListItem } from '../../services/items';
 
+import './Items.css';
+
 export default function Items() {
   const [description, setDescription] = useState('');
   const { items, setItems } = useItems();
@@ -36,7 +38,7 @@ export default function Items() {
   };
 
   return (
-    <div>
+    <div className='todo-wrapper'>
       {items.map((item) => (
         <div key={item.id}>
           <label className="checkbox">
