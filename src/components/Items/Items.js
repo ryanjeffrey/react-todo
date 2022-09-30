@@ -28,8 +28,8 @@ export default function Items() {
 
   const handleNewItem = async () => {
     try {
-      await createListItem(description);
-      setItems((prev) => [...prev, { description }]);
+      const newItem = await createListItem(description);
+      setItems((prev) => [...prev, newItem]);
       setDescription('');
     } catch (e) {
       // eslint-disable-next-line no-console
