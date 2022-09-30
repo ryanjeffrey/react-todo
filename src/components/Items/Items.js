@@ -38,7 +38,7 @@ export default function Items() {
   };
 
   return (
-    <div className='todo-wrapper'>
+    <div className="todo-wrapper">
       {items.map((item) => (
         <div key={item.id}>
           <label className="checkbox">
@@ -50,13 +50,12 @@ export default function Items() {
       <div>
         <input
           type="text"
-          placeholder="new item"
+          placeholder="Add ToDo..."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          required
         />
-        <button onClick={handleNewItem}>
-          Add
-        </button>
+        <button onClick={handleNewItem}>Add</button>
       </div>
     </div>
   );
