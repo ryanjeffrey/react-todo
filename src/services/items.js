@@ -20,3 +20,9 @@ export async function toggleListItem({ id, complete }) {
 
   return checkError(response);
 }
+
+export async function deleteListItem(id) {
+  const response = await client.from('todos').delete().match({ id }).single();
+
+  return checkError(response);
+}

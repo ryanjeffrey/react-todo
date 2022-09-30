@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { useItems } from '../../hooks/useItems';
-import { createListItem, toggleListItem } from '../../services/items';
+import { createListItem, deleteListItem, toggleListItem } from '../../services/items';
 
 import './Items.css';
 
@@ -37,6 +37,13 @@ export default function Items() {
     }
   };
 
+  const handleDelete = async (id) => {
+    const message = 'Are you sure you want to delete this To Do?';
+    if (!confirm(message)) return;
+    const deletedItem = await deleteListItem(id);
+    setItems((prevState) => prevState.filter((prevTodo) => prevTodo.id !== deletedItem.id));
+  };
+
   return (
     <div className="todo-wrapper">
       {items.map((item) => (
@@ -45,6 +52,9 @@ export default function Items() {
             <input type="checkbox" checked={item.complete} onChange={() => handleClick(item)} />
             {item.description}
           </label>
+          <button className="delete-button" onClick={() => handleDelete(item.id)}>
+            Delete
+          </button>
         </div>
       ))}
       <div>

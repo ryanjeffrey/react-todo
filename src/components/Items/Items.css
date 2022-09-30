@@ -4,8 +4,22 @@
 
 .todo-wrapper div {
     margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .todo-wrapper button {
     margin-left: 10px;
+}
+
+.delete-button {
+    font-size: 10px;
+    padding: 2px;
+    border: none;
+    transition: all .3s ease-in;
+}
+.delete-button:hover {
+    color: red;
 }
