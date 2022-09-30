@@ -6,8 +6,8 @@ export async function getListItems() {
 }
 
 export async function createListItem(description) {
-  const response = await client.from('todos').insert([{ description }]); 
-
+  const response = await client.from('todos').insert({ description }).single();
+  
   return checkError(response);
 }
 
