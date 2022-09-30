@@ -8,3 +8,11 @@
 button, input {
   font-family: 'Space Grotesk', sans-serif;
 }
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
