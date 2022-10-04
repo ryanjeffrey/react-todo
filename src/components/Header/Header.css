@@ -1,0 +1,8 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+hr {
+    width: 90vw;
+}

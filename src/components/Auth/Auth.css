@@ -1,0 +1,14 @@
+.auth-wrapper {
+    margin-top: 40px;
+}
+
+.auth-toggle * {
+    margin: 20px;
+}
+
+.form-controls {
+    margin: 20px auto;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    max-width: 200px;
+}
